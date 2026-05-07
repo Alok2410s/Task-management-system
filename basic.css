@@ -1,0 +1,27 @@
+input[value="Tim" i] ~ #result::before{
+   content:"Tim Carry";
+   color:blue;
+}
+#result0:before{
+    content: "RIO";
+}
+
+#result1:before{
+    content: "KIMITSUKI";
+}
+
+#result2:before{
+    content: "";
+}
+
+#result3:before{
+    content: "RIO";
+}
+
+#result14:before{
+    content: "RIO";
+}
+
+#result15:before{
+    content: "RIO";
+}
