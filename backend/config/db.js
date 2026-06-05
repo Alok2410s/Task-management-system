@@ -56,7 +56,7 @@ function getMockUserModel() {
   return {
     findOne(query) {
       const u = store.users.find((u) => {
-        if (query.email) return u.email === query.email;
+        if (query.email) return u.email === query.email.toLowerCase();
         if (query._id) return u._id === String(query._id);
         return false;
       });
@@ -70,7 +70,7 @@ function getMockUserModel() {
       const salt = await bcrypt.genSalt(10);
       const hashed = await bcrypt.hash(data.password, salt);
       const user = {
-        _id: genId(), name: data.name, email: data.email,
+        _id: genId(), name: data.name, email: data.email.toLowerCase(),
         password: hashed, avatar: data.avatar || '',
         createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
       };
