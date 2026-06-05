@@ -1,0 +1,162 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 0;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.close {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition);
+}
+
+.close:hover { color: var(--text-primary); background: var(--bg-elevated); }
+
+.form { padding: 0 24px 24px; display: flex; flex-direction: column; gap: 16px; }
+
+.field { display: flex; flex-direction: column; gap: 6px; }
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.req { color: var(--red); }
+
+.input, .select, .textarea {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: border-color var(--transition);
+  outline: none;
+  width: 100%;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
+
+.input::placeholder, .textarea::placeholder { color: var(--text-muted); }
+
+.input.inputErr { border-color: var(--red); }
+
+.textarea { resize: vertical; min-height: 80px; }
+
+.select { cursor: pointer; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23555568' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.select option { background: var(--bg-card); }
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.chips { display: flex; gap: 6px; }
+
+.chip {
+  flex: 1;
+  padding: 8px 4px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--text-muted);
+  transition: all var(--transition);
+  background: var(--bg-elevated);
+}
+
+.chip:hover { border-color: var(--text-muted); color: var(--text-secondary); }
+
+.chip.low.chipActive    { background: var(--green-dim);  border-color: var(--green);  color: var(--green); }
+.chip.medium.chipActive { background: var(--amber-dim);  border-color: var(--amber);  color: var(--amber); }
+.chip.high.chipActive   { background: var(--red-dim);    border-color: var(--red);    color: var(--red); }
+
+.err { font-size: 12px; color: var(--red); }
+
+.actions { display: flex; gap: 10px; margin-top: 4px; }
+
+.cancel {
+  flex: 1;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 600;
+  background: transparent;
+  transition: all var(--transition);
+}
+
+.cancel:hover { border-color: var(--text-muted); color: var(--text-primary); }
+
+.submit {
+  flex: 2;
+  padding: 11px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.submit:hover:not(:disabled) { background: var(--accent-hover); transform: translateY(-1px); }
+.submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Date input styling for dark */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 220" fill="none">
+  <!-- Background circle -->
+  <circle cx="150" cy="110" r="90" fill="#EEF2FF" opacity="0.6"/>
+
+  <!-- Clipboard body -->
+  <rect x="90" y="60" width="120" height="140" rx="10" fill="white" stroke="#C7D2FE" stroke-width="2"/>
+
+  <!-- Clipboard clip -->
+  <rect x="125" y="52" width="50" height="18" rx="9" fill="white" stroke="#C7D2FE" stroke-width="2"/>
+  <rect x="133" y="56" width="34" height="8" rx="4" fill="#A5B4FC"/>
+
+  <!-- Lines (empty tasks) -->
+  <rect x="108" y="92" width="84" height="8" rx="4" fill="#E0E7FF"/>
+  <rect x="108" y="112" width="60" height="8" rx="4" fill="#E0E7FF"/>
+  <rect x="108" y="132" width="72" height="8" rx="4" fill="#E0E7FF"/>
+  <rect x="108" y="152" width="50" height="8" rx="4" fill="#E0E7FF"/>
+
+  <!-- Checkboxes -->
+  <rect x="108" y="90" width="12" height="12" rx="3" fill="#C7D2FE"/>
+  <rect x="108" y="110" width="12" height="12" rx="3" fill="#C7D2FE"/>
+  <rect x="108" y="130" width="12" height="12" rx="3" fill="#C7D2FE"/>
+  <rect x="108" y="150" width="12" height="12" rx="3" fill="#C7D2FE"/>
+
+  <!-- Stars decorative -->
+  <circle cx="72" cy="80" r="4" fill="#A5B4FC" opacity="0.5"/>
+  <circle cx="230" cy="75" r="6" fill="#818CF8" opacity="0.4"/>
+  <circle cx="240" cy="150" r="4" fill="#A5B4FC" opacity="0.5"/>
+  <circle cx="65" cy="160" r="5" fill="#818CF8" opacity="0.3"/>
+
+  <!-- Text -->
+  <text x="150" y="212" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="13" fill="#6366F1" font-weight="600">No tasks yet</text>
+  <text x="150" y="228" text-anchor="middle" font-family="'Segoe UI', sans-serif" font-size="11" fill="#94A3B8">Add your first task to get started!</text>
+</svg>
