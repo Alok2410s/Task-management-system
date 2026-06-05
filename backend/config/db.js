@@ -1,9 +1,19 @@
 const mongoose = require('mongoose');
+const fs = require('fs');
+const path = require('path');
 
 /* ------------------------------------------------------------------ */
 /*  In-memory data store (used only when MongoDB is unavailable)      */
 /* ------------------------------------------------------------------ */
-const store = { users: [], tasks: [] };
+const STORE_FILE = path.join(__dirname, '../data/store.json');
+const DATA_DIR = path.join(__dirname, '../data');
+
+// Ensure data directory exists
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
+
+let store = { users: [], tasks: [] };
 let _mockActive = false;
 
 const genId = () =>
@@ -12,6 +22,29 @@ const genId = () =>
 
 /** Check whether the mock is active */
 function isMockActive() { return _mockActive; }
+
+/** Save store to file */
+function saveStore() {
+  try {
+    fs.writeFileSync(STORE_FILE, JSON.stringify(store, null, 2), 'utf8');
+  } catch (error) {
+    console.error('Failed to save store to file:', error.message);
+  }
+}
+
+/** Load store from file */
+function loadStore() {
+  try {
+    if (fs.existsSync(STORE_FILE)) {
+      const data = fs.readFileSync(STORE_FILE, 'utf8');
+      store = JSON.parse(data);
+      console.log('✅ Store loaded from file');
+    }
+  } catch (error) {
+    console.error('Failed to load store from file:', error.message);
+    store = { users: [], tasks: [] };
+  }
+}
 
 /* ------------------------------------------------------------------ */
 /*  connectDB                                                         */
@@ -24,6 +57,7 @@ const connectDB = async () => {
     console.error(`MongoDB connection failed: ${error.message}`);
     console.log('⚡ Starting with In-Memory Mock Database');
     _mockActive = true;
+    loadStore();
   }
 };
 
@@ -46,6 +80,7 @@ function getMockUserModel() {
           this.password = await bcrypt.hash(this.password, salt);
         }
         Object.assign(store.users[idx], this, { updatedAt: new Date().toISOString() });
+        saveStore();
         return wrap(store.users[idx]);
       }
       return this;
@@ -75,6 +110,7 @@ function getMockUserModel() {
         createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
       };
       store.users.push(user);
+      saveStore();
       return wrap(user);
     },
   };
@@ -88,6 +124,7 @@ function getMockTaskModel() {
       const idx = store.tasks.findIndex((t) => t._id === raw._id);
       if (idx !== -1) {
         Object.assign(store.tasks[idx], this, { updatedAt: new Date().toISOString() });
+        saveStore();
         return wrap(store.tasks[idx]);
       }
       return this;
@@ -118,6 +155,7 @@ function getMockTaskModel() {
         (t) => String(t._id) === String(query._id) && String(t.user) === String(query.user)
       );
       const removed = idx !== -1 ? store.tasks.splice(idx, 1)[0] : null;
+      saveStore();
       return { then(r) { r(wrap(removed)); }, catch() { return this; } };
     },
     async create(data) {
@@ -129,6 +167,7 @@ function getMockTaskModel() {
         createdAt: new Date().toISOString(), updatedAt: new Date().toISOString(),
       };
       store.tasks.push(task);
+      saveStore();
       return wrap(task);
     },
     async aggregate(pipeline) {
@@ -149,3 +188,5 @@ module.exports = connectDB;
 module.exports.isMockActive = isMockActive;
 module.exports.getMockUserModel = getMockUserModel;
 module.exports.getMockTaskModel = getMockTaskModel;
+module.exports.saveStore = saveStore;
+module.exports.loadStore = loadStore;

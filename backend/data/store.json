@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "_id": "80yqis11fz8f6zvp",
+      "name": "Test User",
+      "email": "test@example.com",
+      "password": "$2a$10$KL0JPPaoY9ST4.Xd69D.8.2OBrOQNcZiwiGBqDpiY41RHy2Ob4AuC",
+      "avatar": "",
+      "createdAt": "2026-06-05T17:25:37.007Z",
+      "updatedAt": "2026-06-05T17:25:37.010Z"
+    },
+    {
+      "_id": "gdcz6jbayfmbq2lw",
+      "name": "nike",
+      "email": "kite@gmail.com",
+      "password": "$2a$10$LAeUWhg30mjcyqcsd.w6F.0DaTr.IW8bmLg8naw7Yu.VPGo0I1pBm",
+      "avatar": "",
+      "createdAt": "2026-06-05T17:32:27.633Z",
+      "updatedAt": "2026-06-05T17:32:27.633Z"
+    },
+    {
+      "_id": "1hkjahdlql1dow2m",
+      "name": "leon",
+      "email": "qwer@gmail.com",
+      "password": "$2a$10$czJd3T4.ts8KdqNu2N75sOdvMsyVLF0kWgTDCK17s4iqh82cfvGAa",
+      "avatar": "",
+      "createdAt": "2026-06-05T17:41:24.018Z",
+      "updatedAt": "2026-06-05T17:41:24.018Z"
+    }
+  ],
+  "tasks": [
+    {
+      "_id": "q9y2vwm8z8mhdb3m",
+      "user": "80yqis11fz8f6zvp",
+      "title": "Test Task",
+      "description": "This is a test task",
+      "category": "work",
+      "priority": "high",
+      "status": "pending",
+      "dueDate": null,
+      "completed": false,
+      "createdAt": "2026-06-05T17:27:13.427Z",
+      "updatedAt": "2026-06-05T17:27:13.427Z"
+    }
+  ]
+}
