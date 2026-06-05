@@ -68,7 +68,7 @@ export default function Register() {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Jane Doe"
+                placeholder="Alok"
                 className={`${styles.input} ${errors.name ? styles.inputErr : ''}`}
                 autoFocus
               />
@@ -151,5 +151,4 @@ export default function Register() {
         </div>
       </div>
     </div>
-  );
-}
+  )
