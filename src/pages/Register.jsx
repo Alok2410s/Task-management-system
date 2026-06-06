@@ -15,7 +15,8 @@ export default function Register() {
   const validate = () => {
     const e = {};
     if (!form.name.trim())       e.name     = 'Name is required';
-    if (!form.email)             e.email    = 'Email is required';
+    if (!form.email.trim())      e.email    = 'Email is required';
+    else if (!/^\S+@\S+\.\S+$/.test(form.email)) e.email = 'Please enter a valid email';
     if (form.password.length < 6) e.password = 'Password must be at least 6 characters';
     if (form.password !== form.confirm) e.confirm = 'Passwords do not match';
     return e;

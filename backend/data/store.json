@@ -26,6 +26,33 @@
       "avatar": "",
       "createdAt": "2026-06-05T17:41:24.018Z",
       "updatedAt": "2026-06-05T17:41:24.018Z"
+    },
+    {
+      "_id": "4ctyn0hf3u4916g8",
+      "name": "New User",
+      "email": "newuser@example.com",
+      "password": "$2a$10$i8tdJzTO9Rvk5TiAFeeVXeCHYVj.BCD4S2WdyILXwMLN40IJRp/La",
+      "avatar": "",
+      "createdAt": "2026-06-06T07:04:33.600Z",
+      "updatedAt": "2026-06-06T07:04:33.601Z"
+    },
+    {
+      "_id": "nhy0o2u3qw20u5x7",
+      "name": "Test",
+      "email": "test2@example.com",
+      "password": "$2a$10$9AK8Z46k9C8vOFKDQ6w5yu7hQtcAVvWjMND8mWnmwdLrGMY1OqkJC",
+      "avatar": "",
+      "createdAt": "2026-06-06T07:06:50.751Z",
+      "updatedAt": "2026-06-06T07:06:50.751Z"
+    },
+    {
+      "_id": "j05g61cozrytm2zb",
+      "name": "Test User 2",
+      "email": "testuser2@example.com",
+      "password": "$2a$10$15jCneFrNcyGbtfIgE5fJ.fXKsQgwyD4XrhbffsnS4gu5nmaVIu3y",
+      "avatar": "",
+      "createdAt": "2026-06-06T07:14:10.096Z",
+      "updatedAt": "2026-06-06T07:14:10.103Z"
     }
   ],
   "tasks": [
